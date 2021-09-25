@@ -1,0 +1,9 @@
+<div style="background-color: blue">
+
+  Test-Facilities
+
+</div>
+<li *ngFor="let facility of facilities | async; index as i;">
+  {{i}}. {{facility.facilityName}}
+
+</li>

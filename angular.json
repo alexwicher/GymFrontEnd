@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "GymFrontEnd"
+  "defaultProject": "GymFrontEnd",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
