@@ -1,0 +1,8 @@
+<div style="background-color: green">
+
+  Test-Activities
+
+</div>
+<li *ngFor="let activity of activities | async; index as i;">
+  {{i}}. {{activity.activityName}}
+</li>

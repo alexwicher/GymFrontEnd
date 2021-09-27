@@ -12,6 +12,7 @@ import {FacilitiesListModule} from "../facilities/facilitiesList.module";
 import {TopBarModule} from "../top-bar/top-bar.module";
 import {HttpClientModule} from "@angular/common/http";
 import {reducers} from "../../shared/stateManager/reducers";
+import {ActivitiesListModule} from "../activities/activitiesList.module";
 
 const routes = [
   {path: '', component: AppComponent}
@@ -31,7 +32,8 @@ const routes = [
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     TopBarModule,
-    FacilitiesListModule
+    FacilitiesListModule,
+    ActivitiesListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
