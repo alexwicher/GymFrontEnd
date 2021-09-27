@@ -11,6 +11,7 @@ import {AppRoutingModule} from "./app.routing-module";
 import {FacilitiesListModule} from "../facilities/facilitiesList.module";
 import {TopBarModule} from "../top-bar/top-bar.module";
 import {HttpClientModule} from "@angular/common/http";
+import {reducers} from "../../shared/stateManager/reducers";
 
 const routes = [
   {path: '', component: AppComponent}
@@ -27,7 +28,7 @@ const routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     TopBarModule,
     FacilitiesListModule

@@ -8,6 +8,7 @@ import {FacilityEffects} from "../../shared/stateManager/effects/facility.effect
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {FacilitiesService} from "../../shared/services/facilitiesService";
+import {facilityStore} from "../../shared/stateManager/reducers/facility.reducer";
 
 const routes = [{path: 'facilities', component: FacilitiesListComponent}]
 
@@ -18,7 +19,7 @@ const routes = [{path: 'facilities', component: FacilitiesListComponent}]
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('facilitiesModule', reducers),
+    StoreModule.forFeature("facilities",facilityStore),
     EffectsModule.forFeature([FacilityEffects])
   ],
   providers: [FacilitiesService],

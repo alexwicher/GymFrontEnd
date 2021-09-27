@@ -32,7 +32,7 @@ export const facilityReducer = createReducer(
       }))
 );
 
-export function reducer(state: FacilityState | undefined, action: Action): any {
+export function facilityStore(state: FacilityState | undefined, action: Action): any {
   return facilityReducer(state, action);
 }
 

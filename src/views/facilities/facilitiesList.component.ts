@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {select, Store} from "@ngrx/store";
+import {Store} from "@ngrx/store";
 import {requestFacilityList} from "../../shared/stateManager/actions/facility.actions";
-import {getFacilities} from "../../shared/stateManager/reducers";
+import {AppState, getFacilities} from "../../shared/stateManager/reducers";
 import {Observable} from "rxjs";
 import {Facility} from "../../shared/models/Facility";
 
@@ -14,7 +14,7 @@ export class FacilitiesListComponent implements OnInit {
   title = 'GymFrontEnd';
   facilities: Observable<Facility[]>;
 
-  constructor(private store: Store) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
