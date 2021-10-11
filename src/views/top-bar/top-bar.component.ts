@@ -1,11 +1,14 @@
 import {Store} from "@ngrx/store";
-import {Component, OnInit} from "@angular/core";
+import {Component, ViewEncapsulation} from "@angular/core";
 
 
 @Component({
   selector: 'top-bar',
   templateUrl: './top-bar.component.html',
-  // styleUrls: ['./topBar.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: [
+    '../../../node_modules/bootstrap/dist/css/bootstrap.css'
+  ],
 })
 export class TopBarComponent {
 
