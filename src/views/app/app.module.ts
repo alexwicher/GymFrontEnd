@@ -16,6 +16,7 @@ import {NotFoundComponent} from "../notFound/notFound.component";
 import {NotFoundModule} from "../notFound/notFound.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {LoginModule} from "../logIn/login.module";
 
 const routes = [
   {path: '', component: AppComponent},
@@ -37,6 +38,7 @@ const routes = [
     TopBarModule,
     FacilitiesListModule,
     NotFoundModule,
+    LoginModule,
     ActivitiesListModule,
     NgbModule,
     FontAwesomeModule

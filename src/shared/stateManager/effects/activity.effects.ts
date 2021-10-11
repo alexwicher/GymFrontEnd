@@ -3,18 +3,19 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import * as activityActions from "../actions/activity.actions";
 import {catchError, map, switchMap} from "rxjs/operators";
 import {of as observableOf} from 'rxjs';
-import {ActivitiesService} from "../../services/activitiesService";
+import {ActivityService} from "../../services/activityService";
+import {Activity} from "../../models/Activity";
 
 @Injectable()
 export class ActivityEffects {
-  constructor(private dataService: ActivitiesService, private actions$: Actions) {
+  constructor(private dataService: ActivityService, private actions$: Actions) {
   }
 
   loadRequestEffect$ = createEffect(() => this.actions$.pipe(
     ofType(activityActions.requestActivityList),
     switchMap(action => {
       return this.dataService.getAllActivities().pipe(
-        map((activities: any[]) => {
+        map((activities: Activity[]) => {
           return activityActions.successActivityList({activities});
         }),
         catchError(error => {

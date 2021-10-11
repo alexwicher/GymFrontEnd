@@ -6,7 +6,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {FacilityEffects} from "../../shared/stateManager/effects/facility.effects";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
-import {FacilitiesService} from "../../shared/services/facilitiesService";
+import {FacilityService} from "../../shared/services/facilityService";
 import {facilityStore} from "../../shared/stateManager/reducers/facility.reducer";
 
 const routes = [{path: 'facilities', component: FacilitiesListComponent}]
@@ -21,7 +21,7 @@ const routes = [{path: 'facilities', component: FacilitiesListComponent}]
     StoreModule.forFeature("facilities",facilityStore),
     EffectsModule.forFeature([FacilityEffects])
   ],
-  providers: [FacilitiesService],
+  providers: [FacilityService],
 })
 export class FacilitiesListModule {
 }

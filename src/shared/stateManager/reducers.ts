@@ -4,6 +4,7 @@ import {
 } from '@ngrx/store';
 import {facilityReducer, FacilityState} from "./reducers/facility.reducer";
 import {activityReducer, ActivityState} from "./reducers/activity.reducer";
+import {UserState} from "./reducers/user.reducers";
 
 
 export interface AppState {
@@ -28,7 +29,14 @@ export const getActivities = createSelector(
   (state: ActivityState) => state.activities
 );
 
+export const getUserState = createFeatureSelector<UserState>('user');
+export const isUserLoggedIn = createSelector(
+  getUserState,
+  (state: UserState) => state.user !== null
+);
+export const getUserJWT = createSelector(
+  getUserState,
+  (state: UserState) => state.user?.sessionJWT
+);
 
-// export const getExerciseState = createFeatureSelector<ExerciseState>('exercises');
-// export const getExercises = createSelector(getExerciseState, state => state.exercises);
 

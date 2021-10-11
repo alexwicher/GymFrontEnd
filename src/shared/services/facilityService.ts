@@ -1,18 +1,18 @@
 import config from "../../config.js"
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
-import {Activity} from "../models/Activity";
+import {Facility} from "../models/Facility";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActivitiesService {
+export class FacilityService {
 
   constructor(private http: HttpClient) {
   }
 
-  getAllActivities() {
-    return this.http.get<Activity[]>(config.api.url + '/activities');
+  getAllFacilities() {
+    return this.http.get<Facility[]>(config.api.url + '/facilities');
   }
 }
 
