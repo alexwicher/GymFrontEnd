@@ -4,13 +4,13 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'top-bar',
-  templateUrl: './top-bar.component.html',
+  templateUrl: './login.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
     '../../../node_modules/bootstrap/dist/css/bootstrap.css',
   ],
 })
-export class TopBarComponent {
+export class LoginComponent {
   faBars = faBars
   constructor(private store: Store) {
   }
