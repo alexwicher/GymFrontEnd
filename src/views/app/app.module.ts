@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 import {EffectsModule} from "@ngrx/effects";
 import {FacilitiesListModule} from "../facilities/facilitiesList.module";
 import {TopBarModule} from "../top-bar/top-bar.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {reducers} from "../../shared/stateManager/reducers";
 import {ActivitiesListModule} from "../activities/activitiesList.module";
 import {NotFoundComponent} from "../notFound/notFound.component";
@@ -17,6 +17,8 @@ import {NotFoundModule} from "../notFound/notFound.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {LoginModule} from "../logIn/login.module";
+import {ErrorInterceptor} from "../../utils/errorInterceptor";
+import {AlertModule} from "../alert/alert.module";
 
 const routes = [
   {path: '', component: AppComponent},
@@ -40,10 +42,14 @@ const routes = [
     NotFoundModule,
     LoginModule,
     ActivitiesListModule,
+    AlertModule,
     NgbModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 

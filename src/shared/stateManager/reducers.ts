@@ -4,17 +4,19 @@ import {
 } from '@ngrx/store';
 import {facilityReducer, FacilityState} from "./reducers/facility.reducer";
 import {activityReducer, ActivityState} from "./reducers/activity.reducer";
-import {UserState} from "./reducers/user.reducers";
+import {PasswordResetConfirmState, userloginReducer, UserState} from "./reducers/user.reducers";
 
 
 export interface AppState {
   facility: FacilityState,
-  activities: ActivityState
+  activities: ActivityState,
+  user: UserState,
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   facility: facilityReducer,
-  activities: activityReducer
+  activities: activityReducer,
+  user: userloginReducer
 };
 
 export const getFacilityState = createFeatureSelector<FacilityState>('facilities');
@@ -30,6 +32,9 @@ export const getActivities = createSelector(
 );
 
 export const getUserState = createFeatureSelector<UserState>('user');
+export const getLoggedUser = createSelector(getUserState,
+  (state: UserState) => state.user
+);
 export const isUserLoggedIn = createSelector(
   getUserState,
   (state: UserState) => state.user !== null

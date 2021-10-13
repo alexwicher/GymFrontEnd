@@ -14,7 +14,7 @@ export class UserEffects {
   loadRequestRegisterEffect$ = createEffect(() => this.actions$.pipe(
     ofType(serviceAction.requestUserRegister),
     switchMap(action => {
-      return this.dataService.registerUser(action.username, action.fullName, action.DNI, action.password, action.email, action.re_password).pipe(
+      return this.dataService.registerUser(action.userName, action.fullName, action.DNI, action.password, action.email, action.re_password).pipe(
         map((user: User) => {
           return serviceAction.sucessUserRegister({user});
         }),
@@ -28,7 +28,7 @@ export class UserEffects {
   loadRequestLogInEffect$ = createEffect(() => this.actions$.pipe(
     ofType(serviceAction.requestUserLogin),
     switchMap(action => {
-      return this.dataService.logIn(action.username, action.password).pipe(
+      return this.dataService.logIn(action.userName, action.password).pipe(
         map((user: User) => {
           return serviceAction.sucessUserLogin({user});
         }),

@@ -11,9 +11,9 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  logIn(username: string, password: string) {
+  logIn(userName: string, password: string) {
     const data = {
-      username: username,
+      userName: userName,
       password: password,
     };
     return this.http.post<User>(config.api.url + '/user/signup', data);
@@ -37,9 +37,9 @@ export class UserService {
     return this.http.post(config.api.url + 'user/reset_password_confirm/', data);
   }
 
-  registerUser(username: string, fullName: string, DNI: string, password: string, email: string, re_password: string) {
+  registerUser(userName: string, fullName: string, DNI: string, password: string, email: string, re_password: string) {
     const data = {
-      username: username,
+      userName: userName,
       fullName: fullName,
       DNI: DNI,
       password: password,

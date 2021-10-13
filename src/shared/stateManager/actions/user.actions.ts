@@ -20,7 +20,7 @@ import {User} from "../../models/User";
 
 export const requestUserRegister = createAction(
   REQUEST_USER_REGISTER,
-  props<{ username: string, fullName: string, DNI: string, password: string, email: string, re_password: string }>()
+  props<{ userName: string, fullName: string, DNI: string, password: string, email: string, re_password: string }>()
 );
 
 export const sucessUserRegister = createAction(
@@ -39,7 +39,7 @@ export const failUserRegister = createAction(
 
 export const requestUserLogin = createAction(
   REQUEST_USER_LOGIN,
-  props<{ username: string, password: string }>()
+  props<{ userName: string, password: string }>()
 );
 
 export const sucessUserLogin = createAction(
